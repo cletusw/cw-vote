@@ -16,11 +16,11 @@ Up/down-voting widget a la StackOverflow.
 
     <link rel="stylesheet" href="cw-vote.css" />
 
-    <svg viewBox="0 0 10 5" on-tap="{{ voteUp }}">
+    <svg viewBox="0 0 10 5" on-tap="{{ voteUp }}" class="{{ { highlight: userValue === 1 } | tokenList }}">
       <polygon points="0,5 5,0 10,5"></polygon>
     </svg>
     <div on-tap="{{ voteCancel }}">{{ value }}</div>
-    <svg viewBox="0 0 10 5" on-tap="{{ voteDown }}">
+    <svg viewBox="0 0 10 5" on-tap="{{ voteDown }}" class="{{ { highlight: userValue === -1 } | tokenList }}">
       <polygon points="0,0 5,5 10,0 "></polygon>
     </svg>
 

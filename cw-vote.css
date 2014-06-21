@@ -13,6 +13,10 @@ svg {
   width: 32px;
 }
 
+svg.highlight {
+  fill: #ff8c00;
+}
+
 div {
   padding: 5px 0;
   text-align: center;
