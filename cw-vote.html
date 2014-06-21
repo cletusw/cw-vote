@@ -1,0 +1,51 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+Up/down-voting widget a la StackOverflow.
+
+##### Example
+
+    <cw-vote value="6" userValue="1"></cw-vote>
+
+@element cw-vote
+@homepage http://cletusw.github.io/cw-vote
+-->
+<polymer-element name="cw-vote">
+
+  <template>
+
+    <link rel="stylesheet" href="cw-vote.css" />
+
+    <span>{{ value }}</span>
+
+  </template>
+
+  <script>
+
+    Polymer('cw-vote', {
+
+      publish: {
+        /**
+         * 1 if the user has upvoted this item,
+         * -1 if the user has downvoted this item,
+         * 0 otherwise
+         *
+         * @attribute userValue
+         * @type number
+         */
+        userValue: 0,
+
+        /**
+         * The sum of all users' votes.
+         *
+         * @attribute value
+         * @type number
+         */
+        value: 0
+      }
+
+    });
+
+  </script>
+
+</polymer-element>
