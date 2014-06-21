@@ -1,0 +1,7 @@
+{
+  "name": "cw-vote#gh-pages",
+  "private": true,
+  "dependencies": {
+    "cw-vote": "cletusw/cw-vote#master"
+  }
+}

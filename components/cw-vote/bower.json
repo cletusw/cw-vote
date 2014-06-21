@@ -1,0 +1,14 @@
+{
+  "name": "cw-vote",
+  "description": "Up/down-voting widget a la StackOverflow.",
+  "keywords": "polymer, web-components",
+  "main": "cw-vote.html",
+  "license": "MIT",
+  "homepage": "https://github.com/cletusw/cw-vote/",
+  "ignore": [
+    "**/.*"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#master"
+  }
+}
