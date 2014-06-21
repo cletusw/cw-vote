@@ -1,3 +1,20 @@
 :host {
+  color: #555;
   display: block;
+  font-family: Arial, 'Liberation Sans', 'DejaVu Sans', sans-serif;
+  font-size: 24px;
+}
+
+svg {
+  display: block;
+  fill: #777;
+  height: 16px;
+  overflow: hidden;
+  width: 32px;
+}
+
+div {
+  padding: 5px 0;
+  text-align: center;
+  width: 32px;
 }
