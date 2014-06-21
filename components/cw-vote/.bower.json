@@ -11,14 +11,13 @@
   "dependencies": {
     "polymer": "Polymer/polymer#master"
   },
-  "_release": "265bfbecf9",
+  "_release": "84f438730a",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "265bfbecf95dd3b0e38d1d013850d1a8d3505734"
+    "commit": "84f438730a1e27367ccf5d18d51a4b035b3b3829"
   },
   "_source": "git://github.com/cletusw/cw-vote.git",
   "_target": "master",
-  "_originalSource": "cletusw/cw-vote",
-  "_direct": true
+  "_originalSource": "cletusw/cw-vote"
 }
