@@ -16,11 +16,11 @@ Up/down-voting widget a la StackOverflow.
 
     <link rel="stylesheet" href="cw-vote.css" />
 
-    <svg viewBox="0 0 10 5">
+    <svg viewBox="0 0 10 5" on-tap="{{ voteUp }}">
       <polygon points="0,5 5,0 10,5"></polygon>
     </svg>
-    <div>{{ value }}</div>
-    <svg viewBox="0 0 10 5">
+    <div on-tap="{{ voteCancel }}">{{ value }}</div>
+    <svg viewBox="0 0 10 5" on-tap="{{ voteDown }}">
       <polygon points="0,0 5,5 10,0 "></polygon>
     </svg>
 
@@ -48,6 +48,65 @@ Up/down-voting widget a la StackOverflow.
          * @type number
          */
         value: 0
+      },
+
+      /**
+       * The `cw-vote-cancel` event is fired whenever the user cancels their vote.
+       *
+       * @event cw-vote-cancel
+       */
+
+      /**
+       * The `voteCancel` method is called whenever the user taps the currently displayed value.
+       *
+       * @method voteCancel
+       */
+      voteCancel: function() {
+        if (this.userValue !== 0) {
+          this.value -= this.userValue;
+          this.userValue = 0;
+          this.fire('cw-vote-cancel', { value: this.value });
+        }
+      },
+
+      /**
+       * The `cw-vote-down` event is fired whenever the user switches their vote to a downvote.
+       *
+       * @event cw-vote-down
+       */
+
+      /**
+       * The `voteDown` method is called whenever the user taps the down arrow.
+       *
+       * @method voteDown
+       */
+      voteDown: function() {
+        if (this.userValue !== -1) {
+          this.value -= this.userValue;
+          this.userValue = -1;
+          this.value--;
+          this.fire('cw-vote-down', { value: this.value });
+        }
+      },
+
+      /**
+       * The `cw-vote-up` event is fired whenever the user switches their vote to an upvote.
+       *
+       * @event cw-vote-up
+       */
+
+      /**
+       * The `voteUp` method is called whenever the user taps the up arrow.
+       *
+       * @method voteUp
+       */
+      voteUp: function() {
+        if (this.userValue !== 1) {
+          this.value -= this.userValue;
+          this.userValue = 1;
+          this.value++;
+          this.fire('cw-vote-up', { value: this.value });
+        }
       }
 
     });
