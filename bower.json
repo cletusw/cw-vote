@@ -9,6 +9,11 @@
     "**/.*"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#master"
+    "polymer": "^1.6.1"
+  },
+  "devDependencies": {
+    "iron-component-page": "polymerelements/iron-component-page#^1.0.0",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   }
 }
