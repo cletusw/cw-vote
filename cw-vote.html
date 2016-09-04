@@ -9,28 +9,52 @@ Up/down-voting widget a la StackOverflow.
 
 @element cw-vote
 @homepage http://cletusw.github.io/cw-vote
+@demo demo/index.html
 -->
-<polymer-element name="cw-vote">
+<dom-module id="cw-vote">
+  <style>
+    :host {
+      color: #555;
+      display: block;
+      font-family: Arial, 'Liberation Sans', 'DejaVu Sans', sans-serif;
+      font-size: 24px;
+    }
 
+    svg {
+      display: block;
+      fill: #777;
+      height: 16px;
+      overflow: hidden;
+      width: 32px;
+    }
+
+    svg.highlight {
+      fill: #ff8c00;
+    }
+
+    div {
+      padding: 5px 0;
+      text-align: center;
+      width: 32px;
+    }
+  </style>
   <template>
 
-    <link rel="stylesheet" href="cw-vote.css" />
-
-    <svg viewBox="0 0 10 5" on-tap="{{ voteUp }}" class="{{ { highlight: userValue === 1 } | tokenList }}">
+    <svg viewBox="0 0 10 5" on-tap="voteUp" class$="{{getHighlightClass(userValue,'up')}}">
       <polygon points="0,5 5,0 10,5"></polygon>
     </svg>
-    <div on-tap="{{ voteCancel }}">{{ value }}</div>
-    <svg viewBox="0 0 10 5" on-tap="{{ voteDown }}" class="{{ { highlight: userValue === -1 } | tokenList }}">
+    <div on-tap="voteCancel">{{value}}</div>
+    <svg viewBox="0 0 10 5" on-tap="voteDown" class$="{{getHighlightClass(userValue, 'down')}}">
       <polygon points="0,0 5,5 10,0 "></polygon>
     </svg>
-
   </template>
 
   <script>
 
-    Polymer('cw-vote', {
+    Polymer({
+      is: 'cw-vote',
 
-      publish: {
+      properties: {
         /**
          * 1 if the user has upvoted this item,
          * -1 if the user has downvoted this item,
@@ -39,7 +63,10 @@ Up/down-voting widget a la StackOverflow.
          * @attribute userValue
          * @type number
          */
-        userValue: 0,
+        userValue: {
+          type: Number,
+          value: 0
+        },
 
         /**
          * The sum of all users' votes.
@@ -47,7 +74,10 @@ Up/down-voting widget a la StackOverflow.
          * @attribute value
          * @type number
          */
-        value: 0
+        value: {
+          type: Number,
+          value: 0
+        }
       },
 
       /**
@@ -107,10 +137,14 @@ Up/down-voting widget a la StackOverflow.
           this.value++;
           this.fire('cw-vote-up', { value: this.value });
         }
+      },
+
+      getHighlightClass: function (userValue, arrow) {
+        switch (arrow) {
+          case 'up': return userValue === 1 ? 'highlight':'';
+          case 'down': return userValue === -1 ? 'highlight':'';
+        }
       }
-
     });
-
   </script>
-
-</polymer-element>
+</dom-module>
